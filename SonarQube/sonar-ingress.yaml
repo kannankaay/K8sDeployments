@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: sonar-ingress
+spec:
+  rules:
+  - host: jenpoc.sd.astrazeneca.com
+    http:
+      paths:
+      - backend:
+          serviceName: sonarqube
+          servicePort: 80
+        path: /sonar
+
